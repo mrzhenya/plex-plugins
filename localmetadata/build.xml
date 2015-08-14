@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<project name="LocalMetadata" default="help" basedir=".">
+
+  <!-- Take properties from user.build.properties file if it exists. -->
+  <property file="user.build.properties" />
+  <property file="build.properties" />
+
+  <filterset id="commonFilterSet" begintoken="@" endtoken="@">
+    <filter token="PROJECT.NAME" value="${project.name}" />
+
+    <filter token="PLUGIN.LOGKEY" value="1" /> <!-- 0 - Off; 1 - On; -->
+    <filter token="PLUGIN.LOGLEVEL" value="Debug" /> <!-- Critical, Error, Warning, Info, Debug. -->
+    <filter token="DEBUG.MAIN" value="False" />
+  </filterset>
+
+  <target name="help"
+          description="Prints useful information about the project builds.">
+    <echo>
+      For a full list of project targets run 'ant -p'.
+    </echo>
+  </target>
+
+  <target name="install" depends="build"
+          description="Installs the plugin into a local PMS directory.">
+    <available file="${plex.plugins.dir}" property="isPlexDirectoryExists" />
+    <fail unless="isPlexDirectoryExists"
+          message="Plex plugins directory '${plex.plugins.dir}' does not exist or is not set!" />
+    <delete dir="${plex.plugins.dir}/${plugin.dir.name}" failonerror="false" />
+    <copy todir="${plex.plugins.dir}/${plugin.dir.name}">
+      <fileset dir="${build.assembly.dir}/${plugin.dir.name}" />
+    </copy>
+  </target>
+
+  <target name="dist" depends="build"
+          description="Creates an archive release file of the plugin.">
+    <echo message="Creating distribution files for the ${project.name} plugin..." />
+    <property name="plugin.base.filename" value="${plugin.name}-${plugin.version}" />
+    <property name="plugin.zip.filepath" value="${build.dist.dir}/${plugin.base.filename}.zip" />
+    <zip destfile="${plugin.zip.filepath}" update="true">
+      <zipfileset dir="${plugin.src.dir}" prefix="${plugin.dir.name}" />
+      <fileset dir="${plugin.docs.dir}" />
+    </zip>
+    <property name="plugin.gz.filepath" value="${build.dist.dir}/${plugin.base.filename}.tar.gz" />
+    <tar destfile="${plugin.gz.filepath}" compression="gzip">
+      <zipfileset dir="${plugin.src.dir}" prefix="${plugin.dir.name}" />
+      <fileset dir="${plugin.docs.dir}" />
+    </tar>
+    <echo message="zip    -> ${plugin.zip.filepath}." />
+    <echo message="tar.gz -> ${plugin.gz.filepath}." />
+  </target>
+
+  <target name="clean"
+          description="Cleans up the build directory.">
+    <echo message="Cleaning up local build directory ${build.dir}." />
+    <delete dir="${build.dir}" failonerror="false" />
+  </target>
+
+  <target name="build" description="Builds project files." depends="-init">
+    <copy todir="${build.assembly.plugin.dir}" filtering="true"
+          encoding="UTF-8" outputencoding="UTF-8" overwrite="true">
+      <filterset refid="commonFilterSet" />
+      <filterset>
+        <filter token="REPOSITORY.REVISION" value="${repo.revision.number}" />
+        <filter token="PLUGIN.REVISION" value="${plugin.version}" />
+      </filterset>
+      <fileset dir="${plugin.src.dir}">
+        <include name="**/*.py" />
+        <include name="**/*.plist" />
+      </fileset>
+    </copy>
+    <copy todir="${build.assembly.plugin.dir}" filtering="false">
+      <fileset dir="${plugin.src.dir}">
+        <exclude name="**/*.py" />
+        <exclude name="**/*.plist" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="-init"
+          description="Initializes necessary properties and creates directories for project build.">
+    <condition property="logLevel" else="0">
+      <isset property="logLevel" />
+    </condition>
+    <tstamp>
+      <format property="current.date" pattern="MM-dd-yyyy" />
+      <format property="current.time" pattern="hh:mm" />
+    </tstamp>
+    <mkdir dir="${build.dir}" />
+    <mkdir dir="${build.dist.dir}" />
+
+    <!-- Export revision number into a property. -->
+    <property name="getrevision.script" value="${script.get.revision.path}" />
+    <chmod perm="755" type="file">
+      <fileset file="${getrevision.script}" />
+    </chmod>
+    <exec executable="${getrevision.script}" dir="." failonerror="false"
+          outputproperty="repo.revision.number">
+    </exec>
+  </target>
+
+</project>

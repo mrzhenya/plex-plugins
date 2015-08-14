@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleExecutable</key>
+	<string>Local Movie Agent</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.plexapp.agents.localmetadata</string>
+	<key>PlexClientPlatforms</key>
+	<string>*</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.1</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.1</string>
+	<key>PlexAgentAttributionText</key>
+	<string>
+    LocalMetadata is a metadata plugin for Plex Media Server that uses data
+    stored in local .info files to populate media files' metadata.
+
+    Project site on github: href=&quot;http://russianplex.sourceforge.net/&quot;&gt;SourceForge&lt;/a&gt;.
+    Plugin version @PLUGIN.REVISION@ (svn:@REPOSITORY.REVISION@).
+    &lt;br&gt; &lt;br&gt;
+    If you use this pluging and is happy with what it does for you, please support their developers via
+    &lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=ALWBEGG7WPYH8&amp;lc=US&amp;item_name=MyMedia&amp;currency_code=USD&amp;bn=PP-DonationsBF%3Abtn_donateCC_LG.gif%3ANonHosted&quot;&gt;PayPal&lt;/a&gt;.
+  </string>
+	<key>PlexFrameworkVersion</key>
+	<string>2</string>
+	<key>PlexPluginClass</key>
+	<string>Agent</string>
+	<key>PlexPluginMode</key>
+	<string>AlwaysOn</string>
+
+  <!-- Logging configuration. REMOVE for Release. -->
+  <key>PlexPluginConsoleLogging</key>
+  <string>@PLUGIN.LOGKEY@</string> <!-- 0 - Off; 1 - On; -->
+  <key>PlexPluginLogLevel</key>
+  <string>@PLUGIN.LOGLEVEL@</string>  <!-- Critical, Error, Warning, Info, Debug. -->
+</dict>
+</plist>

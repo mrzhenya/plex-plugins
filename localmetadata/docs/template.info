@@ -1,0 +1,20 @@
+###
+### Template for an .info file that should be used
+### with the LocalMetadata Plex Media Server plugin.
+###
+[title]
+[original_title]
+[year]
+[original_date]
+[tagline]
+[summary]
+[duration]
+[studio]
+[rating]
+[content_rating]
+[genres]
+[countries]
+[directors]
+[writers]
+[actors]
+[collections]
