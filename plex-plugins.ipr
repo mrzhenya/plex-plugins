@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AntConfiguration">
-    <defaultAnt bundledAnt="true" />
     <buildFile url="file://$PROJECT_DIR$/localmetadata/build.xml">
-      <additionalClassPath />
-      <antReference projectDefault="true" />
-      <customJdkName value="1.7" />
+      <customJdkName value="11" />
       <maximumHeapSize value="128" />
-      <maximumStackSize value="2" />
-      <properties />
     </buildFile>
   </component>
+  <component name="Black">
+    <option name="sdkName" value="Python 3.9" />
+  </component>
   <component name="CompilerConfiguration">
-    <option name="DEFAULT_COMPILER" value="Javac" />
-    <resourceExtensions />
     <wildcardResourcePatterns>
       <entry name="?*.properties" />
       <entry name="?*.xml" />
@@ -26,16 +22,52 @@
       <entry name="?*.tld" />
       <entry name="?*.ftl" />
     </wildcardResourcePatterns>
-    <annotationProcessing enabled="false" useClasspath="true" />
   </component>
-  <component name="CopyrightManager" default="">
-    <module2copyright />
-  </component>
+  <component name="CopyrightManager" default="" />
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
   <component name="IdProvider" IDEtalkID="0CF616F048263AB637DB7C357B90E614" />
+  <component name="InspectionProjectProfileManager">
+    <profile version="1.0">
+      <option name="myName" value="Project Default" />
+    </profile>
+    <version value="1.0" />
+  </component>
+  <component name="IssueNavigationConfiguration">
+    <option name="links">
+      <list>
+        <IssueNavigationLink>
+          <option name="issueRegexp" value="\bb/(\d+)(#\w+)?\b" />
+          <option name="linkRegexp" value="https://buganizer.corp.google.com/issues/$1$2" />
+        </IssueNavigationLink>
+        <IssueNavigationLink>
+          <option name="issueRegexp" value="\b(?:BUG=|FIXED=)(\d+)\b" />
+          <option name="linkRegexp" value="https://buganizer.corp.google.com/issues/$1" />
+        </IssueNavigationLink>
+        <IssueNavigationLink>
+          <option name="issueRegexp" value="\b(?:cl/|cr/|OCL=|DIFFBASE=|ROLLBACK_OF=)(\d+)\b" />
+          <option name="linkRegexp" value="https://critique.corp.google.com/$1" />
+        </IssueNavigationLink>
+        <IssueNavigationLink>
+          <option name="issueRegexp" value="\bomg/(\d+)\b" />
+          <option name="linkRegexp" value="https://omg.corp.google.com/$1" />
+        </IssueNavigationLink>
+        <IssueNavigationLink>
+          <option name="issueRegexp" value="\b(?:go/|goto/)([^,.&lt;&gt;()&quot;\s]+(?:[.,][^,.&lt;&gt;()&quot;\s]+)*)" />
+          <option name="linkRegexp" value="https://goto.google.com/$1" />
+        </IssueNavigationLink>
+        <IssueNavigationLink>
+          <option name="issueRegexp" value="\bcs/([^\s]+[\w$])" />
+          <option name="linkRegexp" value="https://cs.corp.google.com/search/?q=$1" />
+        </IssueNavigationLink>
+        <IssueNavigationLink>
+          <option name="issueRegexp" value="(LINT\.IfChange)|(LINT\.ThenChange)" />
+          <option name="linkRegexp" value="https://goto.google.com/ifthisthenthatlint" />
+        </IssueNavigationLink>
+      </list>
+    </option>
+  </component>
   <component name="Palette2">
     <group name="Swing">
       <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
@@ -165,7 +197,7 @@
   <component name="ProjectResources">
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="Python 2.7.8 (/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7)" project-jdk-type="Python SDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" project-jdk-name="Python 3.9" project-jdk-type="Python SDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="VcsDirectoryMappings">
@@ -173,4 +205,3 @@
   </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
 </project>
-
