@@ -7,15 +7,12 @@
 
   <filterset id="commonFilterSet" begintoken="@" endtoken="@">
     <filter token="PROJECT.NAME" value="${project.name}" />
-
-    <filter token="PLUGIN.LOGKEY" value="1" /> <!-- 0 - Off; 1 - On; -->
     <filter token="PLUGIN.LOGLEVEL" value="Debug" /> <!-- Critical, Error, Warning, Info, Debug. -->
-    <filter token="DEBUG.MAIN" value="False" />
   </filterset>
 
   <target name="help"
           description="Prints useful information about the project builds.">
-    <echo>
+    <echo level="info">
       For a full list of project targets run 'ant -p'.
     </echo>
   </target>
@@ -31,7 +28,7 @@
       <arg value="discover" />
       <arg value="-v" />
     </exec>
-    <echo level="info" message="* Python test/s complete. *" />
+    <echo level="info" message="Running python tests is complete." />
   </target>
 
   <target name="install" depends="build"
@@ -47,7 +44,7 @@
 
   <target name="dist" depends="build"
           description="Creates an archive release file of the plugin.">
-    <echo message="Creating distribution files for the ${project.name} plugin..." />
+    <echo level="info" message="Creating distribution files for the ${project.name} plugin..." />
     <property name="plugin.base.filename" value="${plugin.name}-${plugin.version}" />
     <property name="plugin.zip.filepath" value="${build.dist.dir}/${plugin.base.filename}.zip" />
     <zip destfile="${plugin.zip.filepath}" update="true">
@@ -59,14 +56,14 @@
       <zipfileset dir="${plugin.src.dir}" prefix="${plugin.dir.name}" />
       <fileset dir="${plugin.docs.dir}" />
     </tar>
-    <echo message="zip    -> ${plugin.zip.filepath}." />
-    <echo message="tar.gz -> ${plugin.gz.filepath}." />
+    <echo level="info" message="zip    -> ${plugin.zip.filepath}." />
+    <echo level="info" message="tar.gz -> ${plugin.gz.filepath}." />
   </target>
 
   <target name="clean"
           description="Cleans up the build directory.">
-    <echo message="Cleaning up local build directory ${build.dir}." />
-    <delete dir="${build.dir}" failonerror="false" />
+    <echo level="info" message="Cleaning up local build directory ${build.dir}." />
+    <delete dir="${build.dir}" failonerror="true" />
   </target>
 
   <target name="build" description="Builds project files." depends="-init">

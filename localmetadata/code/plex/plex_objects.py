@@ -12,10 +12,10 @@ class TV_Show():
   genres = None # array
 
   def __str__(self) -> str:
-    return "\n    title: %s\n    summary: %s\n    originally_available_at: %s" \
-           "\n    content_rating: %s\n    rating: %s\n    studio: %s\ncollections: %s\ngenres: %s"\
+    return "\n    title: %s\n    summary: %s\n    originally_available_at: %s\n    " \
+           "content_rating: %s\n    rating: %s\n    studio: %s\n    collections: %s\n    genres: %s"\
       % (str(self.title), str(self.summary), str(self.originally_available_at), str(self.content_rating),
-         str(self.rating), str(self.studio), str(collections), str(genres))
+         str(self.rating), str(self.studio), str(self.collections), str(self.genres))
 
 class RecordObject():
   # emulating only a subset of properties that are used in episodes.

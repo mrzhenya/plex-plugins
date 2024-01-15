@@ -9,7 +9,7 @@ def ParseDate(date, fmt=None):
     :rtype: `datetime <http://docs.python.org/library/datetime.html#datetime-objects>`_
   """
   if date == None or len(date) == 0:
-    return None #TODO: Should we return None or throw an exception here?
+    return None
   try:
     year_only = re.compile(r'[0-9]{4}')
     year_month_date = re.compile(r'[0-9]{4}-[0-9]{2}-[0-9]{2}')
@@ -20,7 +20,7 @@ def ParseDate(date, fmt=None):
     elif year_only.match(date):
       result = datetime.datetime.strptime(date + '-01-01', "%Y-%m-%d")
     else:
-      result = datetime.datetime.fromtimestamp(time.mktime(email.utils.parsedate(date)))
+      return None
   except:
-    return None # Zhenya - this is a non-handled case here
+    return None
   return result

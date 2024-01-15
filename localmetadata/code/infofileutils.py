@@ -1,4 +1,8 @@
-import os, io, re, codecs
+"""
+Utilities for parsing info files.
+"""
+
+import os, re, codecs
 
 ENCODING_PLEX = 'utf-8'
 INFO_FILE_EXTENSION = 'info'

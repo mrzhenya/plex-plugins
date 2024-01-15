@@ -1,1 +1,2 @@
-These functions simulate the Plex provided built-ins.
+The files in this folder are used to stub Plex provided built-ins and are used
+in our tests only.

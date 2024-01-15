@@ -1,4 +1,6 @@
-# Utilities for writing metadata.
+"""
+Utilities for writing parsed metadata into the Plex objects.
+"""
 
 def writeMovieMetadata(movieMetadata, parsedData):
   """ Writes the passed data into a movie metadata object.
@@ -71,7 +73,6 @@ def writeTvShowMetadata(tvShowMetadata, parsedData):
 
 def writeTvEpisodeMetadata(tvEpisodeMetadata, parsedData):
   """Stores the passed metadata into a episode object.
-
 
   Args:
     tvEpisodeMetadata:
