@@ -4,7 +4,7 @@ import infofileutils, metadatautils
 #####################################################################################################################
 
 class localMetadataMovie(Agent.Movies):
-  name = 'Local Metadata info (Movies)'
+  name = 'Local Metadata Info Files (Movies)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
   persist_stored_files = False
@@ -21,8 +21,8 @@ class localMetadataMovie(Agent.Movies):
 
 #####################################################################################################################
 
-class localMetadataMovieTV(Agent.TV_Shows):
-  name = 'Local Metadata info (TV)'
+class localMetadataTV(Agent.TV_Shows):
+  name = 'Local Metadata Info Files (TV)'
   languages = [Locale.Language.NoLanguage]
   primary_provider = False
   persist_stored_files = False

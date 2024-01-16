@@ -1,0 +1,29 @@
+###
+### Template for a .info file that should be used for
+### movies parsed with 'Local Metadata Info Files' agent.
+###
+[title]
+REPLACE ME
+[original_title]
+REPLACE ME
+[year]
+1999
+[originally_available_at]
+1999-05-02
+[tagline]
+REPLACE ME
+[summary]
+REPLACE ME
+[studio]
+REPLACE ME
+[rating]
+9.9
+[content_rating]
+PG
+[genres]
+Drama
+Romance
+[countries]
+USA
+[collections]
+Classics

@@ -50,11 +50,15 @@
     <zip destfile="${plugin.zip.filepath}" update="true">
       <zipfileset dir="${plugin.src.dir}" prefix="${plugin.dir.name}" />
       <fileset dir="${plugin.docs.dir}" />
+      <file file="../README.md" />
+      <file file="../LICENSE" />
     </zip>
     <property name="plugin.gz.filepath" value="${build.dist.dir}/${plugin.base.filename}.tar.gz" />
     <tar destfile="${plugin.gz.filepath}" compression="gzip">
       <zipfileset dir="${plugin.src.dir}" prefix="${plugin.dir.name}" />
       <fileset dir="${plugin.docs.dir}" />
+      <file file="../README.md" />
+      <file file="../LICENSE" />
     </tar>
     <echo level="info" message="zip    -> ${plugin.zip.filepath}." />
     <echo level="info" message="tar.gz -> ${plugin.gz.filepath}." />
@@ -71,7 +75,7 @@
           encoding="UTF-8" outputencoding="UTF-8" overwrite="true">
       <filterset refid="commonFilterSet" />
       <filterset>
-        <filter token="REPOSITORY.REVISION" value="${repo.revision.number}" />
+        <!-- Not used at the moment. -->
         <filter token="PLUGIN.REVISION" value="${plugin.version}" />
       </filterset>
       <fileset dir="${plugin.src.dir}">
@@ -104,15 +108,6 @@
     </tstamp>
     <mkdir dir="${build.dir}" />
     <mkdir dir="${build.dist.dir}" />
-
-    <!-- Export revision number into a property. -->
-    <property name="getrevision.script" value="${script.get.revision.path}" />
-    <chmod perm="755" type="file">
-      <fileset file="${getrevision.script}" />
-    </chmod>
-    <exec executable="${getrevision.script}" dir="." failonerror="false"
-          outputproperty="repo.revision.number">
-    </exec>
   </target>
 
 </project>

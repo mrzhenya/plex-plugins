@@ -1,0 +1,20 @@
+###
+### Template for an episode.info file that should be used for
+### Show episodes parsed with 'Local Metadata Info Files' agent.
+###
+[title]
+REPLACE ME
+[summary]
+REPLACE ME
+[content_rating]
+PG
+[rating]
+9.9
+[originally_available_at]
+2000-09-01
+[directors]
+REPLACE ME
+REPLACE ME
+[writers]
+REPLACE ME
+REPLACE ME

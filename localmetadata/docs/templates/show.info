@@ -1,0 +1,22 @@
+###
+### Template for a show.info file that should be used for
+### shows parsed with 'Local Metadata Info Files' agent.
+###
+[title]
+REPLACE ME
+[summary]
+REPLACE ME
+[content_rating]
+PG
+[rating]
+10.0
+[studio]
+REPLACE ME
+[originally_available_at]
+2000-09-01
+[collections]
+REPLACE ME
+REPLACE ME
+[genres]
+REPLACE ME
+REPLACE ME
