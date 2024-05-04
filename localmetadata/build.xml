@@ -48,14 +48,14 @@
     <property name="plugin.base.filename" value="${plugin.name}-${plugin.version}" />
     <property name="plugin.zip.filepath" value="${build.dist.dir}/${plugin.base.filename}.zip" />
     <zip destfile="${plugin.zip.filepath}" update="true">
-      <zipfileset dir="${plugin.src.dir}" prefix="${plugin.dir.name}" />
+      <zipfileset dir="${build.assembly.plugin.dir}" prefix="${plugin.dir.name}" />
       <fileset dir="${plugin.docs.dir}" />
       <file file="../README.md" />
       <file file="../LICENSE" />
     </zip>
     <property name="plugin.gz.filepath" value="${build.dist.dir}/${plugin.base.filename}.tar.gz" />
     <tar destfile="${plugin.gz.filepath}" compression="gzip">
-      <zipfileset dir="${plugin.src.dir}" prefix="${plugin.dir.name}" />
+      <zipfileset dir="${build.assembly.plugin.dir}" prefix="${plugin.dir.name}" />
       <fileset dir="${plugin.docs.dir}" />
       <file file="../README.md" />
       <file file="../LICENSE" />
