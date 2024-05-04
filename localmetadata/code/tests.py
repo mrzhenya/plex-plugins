@@ -1,6 +1,12 @@
-import os, sys, importlib, unittest, datetime
+import datetime
+import importlib
+import os
+import sys
+import unittest
+
 import infofileutils
 import metadatautils
+
 
 class MyTestCase(unittest.TestCase):
   plex_objects_module = None
@@ -110,39 +116,44 @@ class MyTestCase(unittest.TestCase):
 
   def test_movie_path_utils(self):
     # Info file is in the show directory.
-    movieFilepath = 'data/movie/testmovie.mov'
+    movieFilepath = os.path.join('data', 'movie', 'testmovie.mov')
+    expectedPath = os.path.join('data', 'movie', 'testmovie.info')
     infoFilename = infofileutils.findInfoFileFromMovieFilepath(movieFilepath)
-    self.assertEqual('data/movie/testmovie.info', infoFilename)
+    self.assertEqual(expectedPath, infoFilename)
 
   def test_show_path_utils(self):
     # Info file is in the show directory.
-    episodeFilepath = 'data/show/season/episode/episode.mov'
+    episodeFilepath = os.path.join('data', 'show', 'season', 'episode', 'episode.mov')
+    expectedPath = os.path.join('data', 'show', 'show.info')
     showFilename = infofileutils.findShowFileFromEpisodeFilepath(episodeFilepath)
-    self.assertEqual('data/show/show.info', showFilename)
+    self.assertEqual(expectedPath, showFilename)
 
     # Info file is in the season directory.
-    episodeFilepath = 'data/show1/season/episode/episode.mov'
+    episodeFilepath = os.path.join('data', 'show1', 'season', 'episode', 'episode.mov')
+    expectedPath = os.path.join('data', 'show1', 'season', 'show.info')
     showFilename = infofileutils.findShowFileFromEpisodeFilepath(episodeFilepath)
-    self.assertEqual('data/show1/season/show.info', showFilename)
+    self.assertEqual(expectedPath, showFilename)
 
     # No info file exists.
-    episodeFilepath = 'data/show2/season/episode/episode.mov'
+    episodeFilepath = os.path.join('data', 'show2', 'season', 'episode', 'episode.mov')
     showFilename = infofileutils.findShowFileFromEpisodeFilepath(episodeFilepath)
     self.assertIsNone(showFilename)
 
   def test_episode_path_utils(self):
     # Info file is in the episode own directory and has a standard name.
-    episodeFilepath = 'data/show/season/episode/episode.mov'
+    episodeFilepath = os.path.join('data', 'show', 'season', 'episode', 'episode.mov')
+    expectedPath = os.path.join('data', 'show', 'season', 'episode', 'episode.info')
     infoFilename = infofileutils.findEpisodeFileFromEpisodeFilepath(episodeFilepath)
-    self.assertEqual('data/show/season/episode/episode.info', infoFilename)
+    self.assertEqual(expectedPath, infoFilename)
 
     # Info file is in the episode directory and has the same name as the movie file.
-    episodeFilepath = 'data/show3/season/episode/customname.mov'
+    episodeFilepath = os.path.join('data', 'show3', 'season', 'episode', 'customname.mov')
+    expectedPath = os.path.join('data', 'show3', 'season', 'episode', 'customname.info')
     infoFilename = infofileutils.findEpisodeFileFromEpisodeFilepath(episodeFilepath)
-    self.assertEqual('data/show3/season/episode/customname.info', infoFilename)
+    self.assertEqual(expectedPath, infoFilename)
 
     # No info file exists.
-    episodeFilepath = 'data/show2/season/episode/episode.mov'
+    episodeFilepath = os.path.join('data', 'show2', 'season', 'episode', 'episode.mov')
     infoFilename = infofileutils.findEpisodeFileFromEpisodeFilepath(episodeFilepath)
     self.assertIsNone(infoFilename)
 
