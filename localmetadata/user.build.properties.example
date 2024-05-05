@@ -1,0 +1,5 @@
+# Example of the custom, client specific properties file.
+#
+# To enable local overrides, rename this file to user.build.properties.
+
+plex.plugins.dir = C:\Users\me\AppData\Local\Plex Media Server\Plug-ins
