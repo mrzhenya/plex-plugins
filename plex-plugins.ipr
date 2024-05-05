@@ -2,7 +2,7 @@
 <project version="4">
   <component name="AntConfiguration">
     <buildFile url="file://$PROJECT_DIR$/localmetadata/build.xml">
-      <customJdkName value="11" />
+      <customJdkName value="openjdk-22" />
       <maximumHeapSize value="128" />
     </buildFile>
   </component>
@@ -26,6 +26,9 @@
   <component name="CopyrightManager" default="" />
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
+  </component>
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="PROJECT" charset="UTF-8" />
   </component>
   <component name="IdProvider" IDEtalkID="0CF616F048263AB637DB7C357B90E614" />
   <component name="InspectionProjectProfileManager">
@@ -198,7 +201,7 @@
     <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" project-jdk-name="Python 3.9" project-jdk-type="Python SDK">
-    <output url="file://$PROJECT_DIR$/out" />
+    <output url="file://$PROJECT_DIR$/build/idea" />
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
