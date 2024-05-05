@@ -19,7 +19,8 @@ development folder.
 
 1. First, copy the plugin bundle `PlexLocalMetadata.bundle` into the Plex Media Server
    plug-ins directory:
-   * on Windows, it's `%LOCALAPPDATA%/Plex Media Server/Plug-ins`
+   * on Windows, it's `%LOCALAPPDATA%/Plex Media Server/Plug-ins` (e.g. 
+     C:\Users\julie\AppData\Local\Plex Media Server\Plug-ins)
    * on Mac, it's `/Users/USER/Library/Application Support/Plex Media Server/Plug-ins`
 
 2. Restart or start the Plex Media Server.
